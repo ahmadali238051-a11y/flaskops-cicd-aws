@@ -29,6 +29,11 @@ jobs:
 
       - name: Build Image
         run: docker build -t flaskops:local .
+      - name: login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
         
       - name: Check Docker Image
         run: docker images
