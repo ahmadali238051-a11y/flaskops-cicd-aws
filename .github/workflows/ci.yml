@@ -23,6 +23,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Run tests
+          
+      - name: Build Image
+        run: docker build -t flaskops:local .
+        
+      - name: Check Docker image
+        run: docker images
+        run: docker build -t 
+      - name: Run test
         run: python -m pytest -v
